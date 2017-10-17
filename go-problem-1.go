@@ -12,7 +12,7 @@ import (
 func requestHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 
-	fmt.Fprintln(w, "Well laaaawwwwdddd")
+	fmt.Fprintln(w, "Guessing Game")
 
 }
 
