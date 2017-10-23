@@ -39,13 +39,24 @@ func requestHandler(w http.ResponseWriter, r *http.Request) {
 func guessHandler(w http.ResponseWriter, r *http.Request){
 	msm :="Guess a number between 1 and 20"
 
-	target := rand.Intn(20-1)
+	
+
+	target:= rand.Intn(20-1)
+
+	var ck, err = r.Cookie("target")
+
+//dont fully understand how this statement with error handling works.
+	if err == nil{
+		//if we could read it ,try to convert its value to an int
+		target, _ = strconv.Atoi(ck.Value)
+		
+	}
 
 
 //adapted from https://stackoverflow.com/questions/12130582/setting-cookies-in-golang-net-http
 	 expires := time.Now().AddDate(1, 0, 0) // cookie will expire after 1 year
 
-    ck := &http.Cookie{
+    ck = &http.Cookie{
         Name: "target",
         Value: strconv.Itoa(target),
         //Path: "/",
