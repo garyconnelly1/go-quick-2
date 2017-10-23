@@ -55,11 +55,11 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
     guess1,_ := strconv.Atoi(r.FormValue("Guess"))
 
 	if guess1== target{
-		msm ="Correct Guess"
+		msm ="Yess"
 	}else if guess1 < target{
-	   msm="Try Again guess too low"
+	   msm="Too low: Try again"
 	}else {
-		msm="Try Again guess too high"
+		msm="Too high: Try again"
 	 }
 
 
