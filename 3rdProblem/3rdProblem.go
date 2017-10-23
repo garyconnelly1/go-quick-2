@@ -52,6 +52,16 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 		
 	}
 
+    guess1,_ := strconv.Atoi(r.FormValue("Guess"))
+
+	if guess1== target{
+		msm ="Correct Guess"
+	}else if guess1 < target{
+	   msm="Try Again guess too low"
+	}else {
+		msm="Try Again guess too high"
+	 }
+
 
 //adapted from https://stackoverflow.com/questions/12130582/setting-cookies-in-golang-net-http
 	 expires := time.Now().AddDate(1, 0, 0) // cookie will expire after 1 year
